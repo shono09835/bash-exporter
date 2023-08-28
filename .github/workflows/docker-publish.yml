@@ -22,5 +22,5 @@ jobs:
           DOCKERHUB_REPO: maxon4eg/bash-exporter
           VERSION: ${{ github.run_number }}
         run: |
-          docker build -t $DOCKERHUB_REPO:$GITHUB_SHA .
-          docker push $DOCKERHUB_REPO:$GITHUB_SHA
+          docker build -t $DOCKERHUB_REPO:$VERSION .
+          docker push $DOCKERHUB_REPO:$VERSION
