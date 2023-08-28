@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/gree-gorey/bash-exporter/pkg/run"
+	"github.com/maxon4eg/bash-exporter/pkg/run"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
@@ -32,7 +32,7 @@ func main() {
 	var labelsArr []string
 
 	labelsArr = strings.Split(*labels, ",")
-	labelsArr = append(labelsArr, "verb",  "job")
+	labelsArr = append(labelsArr, "verb", "job")
 
 	verbMetrics = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
@@ -88,7 +88,7 @@ func Run(interval int, path string, names []string, labelsArr []string, debug bo
 			for metric, value := range o.Schema.Results {
 				for _, label := range labelsArr {
 					if _, ok := o.Schema.Labels[label]; !ok {
-					   o.Schema.Labels[label] = ""
+						o.Schema.Labels[label] = ""
 					}
 				}
 				o.Schema.Labels["verb"] = metric
