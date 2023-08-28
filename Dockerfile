@@ -3,8 +3,6 @@ ADD . app
 WORKDIR app
 RUN go mod init cmd/bash-exporter && go mod tidy
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o bash-exporter cmd/bash-exporter/bash-exporter.go
-RUN ls -la 
-RUN pwd 
 
 FROM alpine
 WORKDIR /root/
